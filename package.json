@@ -1,0 +1,97 @@
+{
+  "name": "cool-admin",
+  "version": "4.0.0",
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "@alicloud/pop-core": "^1.7.10",
+    "@cool-midway/alipay": "^4.0.4",
+    "@cool-midway/core": "^4.0.22",
+    "@cool-midway/es": "^4.0.6",
+    "@cool-midway/oss": "^4.0.3",
+    "@cool-midway/queue": "^4.1.2",
+    "@cool-midway/redis": "^4.0.5",
+    "@cool-midway/socket": "^4.0.2",
+    "@cool-midway/wxpay": "^4.0.3",
+    "@midwayjs/bootstrap": "^2.14.0",
+    "@midwayjs/core": "^2.14.0",
+    "@midwayjs/decorator": "^2.14.0",
+    "@midwayjs/orm": "^2.14.0",
+    "@midwayjs/swagger": "^1.3.0",
+    "@midwayjs/view-nunjucks": "^2.14.0",
+    "@midwayjs/web": "^2.13.4",
+    "axios": "^0.26.0",
+    "bignumber.js": "^9.0.2",
+    "co-wechat": "^2.4.0",
+    "co-wechat-api": "^3.11.0",
+    "egg": "^2.33.1",
+    "egg-scripts": "^2.15.2",
+    "egg-view-nunjucks": "^2.3.0",
+    "ipip-ipdb": "^0.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "md5": "^2.3.0",
+    "mini-svg-data-uri": "^1.4.3",
+    "my-bignumber": "^1.0.0",
+    "mysql2": "^2.3.3",
+    "svg-captcha": "^1.4.0",
+    "typeorm": "^0.2.43"
+  },
+  "devDependencies": {
+    "@midwayjs/cli": "^1.2.99",
+    "@midwayjs/cli-plugin-faas": "^1.2.99",
+    "@midwayjs/egg-ts-helper": "^1.2.1",
+    "@midwayjs/fcli-plugin-fc": "^1.2.99",
+    "@midwayjs/luckyeye": "^1.0.3",
+    "@midwayjs/mock": "^2.14.6",
+    "@types/jest": "^27.4.0",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/node": "17",
+    "cross-env": "^7.0.3",
+    "jest": "^27.5.1",
+    "mwts": "^1.3.0",
+    "ts-jest": "^27.1.3",
+    "typescript": "^4.5.5"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon --title=cool-admin-midway-mall --framework=@midwayjs/web --port=8008 --sticky",
+    "stop": "egg-scripts stop --title=cool-admin-midway-mall",
+    "start_build": "npm run build && cross-env NODE_ENV=development midway-bin dev",
+    "docker": "egg-scripts start --title=cool-admin-midway --framework=@midwayjs/web  --sticky",
+    "dev": "cross-env ets && cross-env NODE_ENV=local TS_NODE_TYPE_CHECK=false TS_NODE_TRANSPILE_ONLY=true midway-bin dev --ts --port=8008 --sticky",
+    "test": "midway-bin test",
+    "cov": "midway-bin cov",
+    "lint": "mwts check",
+    "lint:fix": "mwts fix",
+    "ci": "npm run cov",
+    "build": "midway-bin build -c",
+    "check": "luckyeye",
+    "deploy": "midway-bin deploy"
+  },
+  "midway-bin-clean": [
+    ".vscode/.tsbuildinfo",
+    "dist"
+  ],
+  "midway-luckyeye": {
+    "packages": [
+      "midway_v2"
+    ]
+  },
+  "midway-integration": {
+    "lifecycle": {
+      "before:package:cleanup": "npm run build"
+    }
+  },
+  "egg": {
+    "framework": "@midwayjs/web"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "cool-js.com",
+  "license": "MIT"
+}
